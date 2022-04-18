@@ -6,6 +6,7 @@ import java.util.Comparator;
 public class ComparatorsDemo {
     public static void main(String[] args) {
         Person[] people = initPersons();
+
         showPeople(people);
 
         System.out.println("Comparing person 1 and person 2, result: " + people[0].compareTo(people[1]));
@@ -48,5 +49,6 @@ public class ComparatorsDemo {
 
         return people;
     }
+
 }
 
