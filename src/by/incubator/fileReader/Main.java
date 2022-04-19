@@ -14,7 +14,7 @@ public class Main {
 
         try (
                 FileInputStream fileInputStream = new FileInputStream(file);
-                Scanner scanner = new Scanner(fileInputStream);
+                Scanner scanner = new Scanner(fileInputStream)
         ) {
             String fileLine = scanner.nextLine();
             System.out.printf("'%s' read from file '%s', %n", fileLine, path);
@@ -31,35 +31,21 @@ public class Main {
         }
     }
 
+    private static void read(String path) {
+        System.out.println("Trying to read file:");
+        try {
+            readFile(path);
+        } catch (EmptyFileException e) {
+            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
+            e.printStackTrace();
+            System.out.println("Cause of the exception: " + e.getCause());
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-
-        System.out.println("Trying to read empty file:");
-        try {
-            readFile(EMPTY_FILE_PATH);
-        } catch (EmptyFileException e) {
-            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
-            e.printStackTrace();
-            System.out.println("Cause of the exception: " + e.getCause());
-        }
-        System.out.println();
-
-        System.out.println("Trying to read non-empty file:");
-        try {
-            readFile(FILE_PATH);
-        } catch (EmptyFileException e) {
-            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
-            e.printStackTrace();
-            System.out.println("Cause of the exception: " + e.getCause());
-        }
-        System.out.println();
-
-        System.out.println("Trying to read file that does not exists:");
-        try {
-            readFile(INCORRECT_FILE_PATH);
-        } catch (EmptyFileException e) {
-            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
-            e.printStackTrace();
-            System.out.println("Cause of the exception: " + e.getCause());
-        }
+        read(FILE_PATH);
+        read(INCORRECT_FILE_PATH);
+        read(EMPTY_FILE_PATH);
     }
 }
