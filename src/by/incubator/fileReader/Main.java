@@ -32,34 +32,21 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        read(FILE_PATH);
+        read(INCORRECT_FILE_PATH);
+        read(EMPTY_FILE_PATH);
+    }
 
-        System.out.println("Trying to read empty file:");
-        try {
-            readFile(EMPTY_FILE_PATH);
-        } catch (EmptyFileException e) {
-            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
-            e.printStackTrace();
-            System.out.println("Cause of the exception: " + e.getCause());
-        }
-        System.out.println();
-
-        System.out.println("Trying to read non-empty file:");
+    private static void read(String path) {
+        System.out.println("Trying to read file:");
         try {
             readFile(FILE_PATH);
+            readFile(path);
         } catch (EmptyFileException e) {
             System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
             e.printStackTrace();
             System.out.println("Cause of the exception: " + e.getCause());
         }
         System.out.println();
-
-        System.out.println("Trying to read file that does not exists:");
-        try {
-            readFile(INCORRECT_FILE_PATH);
-        } catch (EmptyFileException e) {
-            System.out.println(e.getMessage() + " You entered path: '" + e.getFilePath() + "'");
-            e.printStackTrace();
-            System.out.println("Cause of the exception: " + e.getCause());
-        }
     }
 }
