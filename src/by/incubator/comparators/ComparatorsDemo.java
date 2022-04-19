@@ -5,13 +5,7 @@ import java.util.Comparator;
 
 public class ComparatorsDemo {
     public static void main(String[] args) {
-        Person[] people = new Person[5];
-        people[0] = new Person("Vlad", 20);
-        people[1] = new Person("Oleg", 20);
-        people[2] = new Person("Alex", 18);
-        people[3] = new Person("Artyom", 33);
-        people[4] = new Person("Leonid", 25);
-
+        Person[] people = initPersons();
         showPeople(people);
 
         System.out.println("Comparing person 1 and person 2, result: " + people[0].compareTo(people[1]));
@@ -42,6 +36,17 @@ public class ComparatorsDemo {
         for (int i = 0; i < people.length; i++) {
             System.out.println(people[i]);
         }
+    }
+
+    static Person[] initPersons() {
+        Person[] people = new Person[5];
+        people[0] = new Person("Vlad", 20);
+        people[1] = new Person("Oleg", 20);
+        people[2] = new Person("Alex", 18);
+        people[3] = new Person("Artyom", 33);
+        people[4] = new Person("Leonid", 25);
+
+        return people;
     }
 }
 
