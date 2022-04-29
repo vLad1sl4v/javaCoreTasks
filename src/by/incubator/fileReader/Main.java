@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final String FILE_PATH = "./src/by/incubator/fileReader/input.txt";
-    private static final String INCORRECT_FILE_PATH = "./input1.txt";
+    private static final String INCORRECT_FILE_PATH = "./input2.txt";
     private static final String EMPTY_FILE_PATH = "./src/by/incubator/fileReader/emptyFile.txt";
 
     private static void readFile(String path) throws EmptyFileException {
