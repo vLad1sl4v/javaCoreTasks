@@ -16,7 +16,6 @@ public class Errors {
             System.out.println(counter);
             arrayList.add(new A());
         }
-
     }
 
     static void recursion1() {
@@ -44,4 +43,3 @@ class A {
     String str;
     long[] longs = new long[200];
 }
-
