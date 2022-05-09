@@ -8,11 +8,28 @@ public class ComparatorsDemo {
         Person[] people = initPersons();
         showPeople(people);
 
+        compareDemo(people);
+
+        sortPeople(people);
+
+        showPeople(people);
+
+    }
+
+    private static void showPeople(Person[] people) {
+        for (int i = 0; i < people.length; i++) {
+            System.out.println(people[i]);
+        }
+    }
+
+    private static void compareDemo(Person[] people) {
         System.out.println("Comparing person 1 and person 2, result: " + people[0].compareTo(people[1]));
 
         System.out.println("Comparing person 1 and person 2, result: " + people[0].compareTo(people[1]));
         System.out.println("Comparing person 2 and person 5, result: " + people[1].compare(people[1], people[4]));
+    }
 
+    private static void sortPeople(Person[] people) {
         Arrays.sort(people, new Comparator<Person>() {
             @Override
             public int compare(Person o1, Person o2) {
@@ -29,19 +46,9 @@ public class ComparatorsDemo {
                 return result;
             }
         });
-
-        showPeople(people);
-
     }
 
-    static void showPeople(Person[] people) {
-        for (int i = 0; i < people.length; i++) {
-            System.out.println(people[i]);
-        }
-    }
-
-
-    static Person[] initPersons() {
+    private static Person[] initPersons() {
         Person[] people = new Person[5];
         people[0] = new Person("Vlad", 20);
         people[1] = new Person("Oleg", 20);
