@@ -3,6 +3,8 @@ package by.incubator.threads;
 import by.incubator.threads.callableImpl.Caller;
 import by.incubator.threads.runnableImpl.Runner;
 
+import java.util.concurrent.FutureTask;
+
 public class ThreadsDemo {
     public static void main(String[] args) throws Exception {
         startMyThread();
@@ -25,7 +27,9 @@ public class ThreadsDemo {
 
     private static void startCaller() throws Exception {
         Caller caller = new Caller();
-        caller.call();
+        FutureTask<String> futureTask = new FutureTask<>(caller);
+        Thread thread = new Thread(futureTask);
+        thread.start();
     }
 
     private static void startRunner() {
