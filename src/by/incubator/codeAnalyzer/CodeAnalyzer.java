@@ -36,47 +36,47 @@ public class CodeAnalyzer {
     }
 
     public static String getModifiers(int modifiers) {
-        String modifiersStr = "";
+        StringBuilder modifiersStr = new StringBuilder();
 
         if (Modifier.isAbstract(modifiers)) {
-            modifiersStr += "abstract ";
+            modifiersStr.append("abstract ");
         }
         if (Modifier.isFinal(modifiers)){
-            modifiersStr += "final ";
+            modifiersStr.append("final ");
         }
         if (Modifier.isNative(modifiers)){
-            modifiersStr += "native ";
+            modifiersStr.append("native ");
         }
 
         if (Modifier.isPrivate(modifiers)){
-            modifiersStr += "private ";
+            modifiersStr.append("private ");
         } else if (Modifier.isProtected(modifiers)){
-            modifiersStr += "protected ";
+            modifiersStr.append("protected ");
         } else if (Modifier.isPublic(modifiers)){
-            modifiersStr += "public ";
+            modifiersStr.append("public ");
         }
 
-        return modifiersStr;
+        return modifiersStr.toString();
     }
 
     public static String getAnnotations(Annotation[] annotations) {
-        String annotationsStr = "";
+        StringBuilder annotationsStr = new StringBuilder();
 
         for (Annotation annotation : annotations) {
-            annotationsStr += annotation + " ";
+            annotationsStr.append(annotation).append(" ");
         }
 
-        return annotationsStr;
+        return annotationsStr.toString();
     }
 
     public static String getParameters(Class<?>[] parameterTypes) {
-        String paramInfo = "";
+        StringBuilder paramInfo = new StringBuilder();
 
         for (Class<?> parameter : parameterTypes) {
-            paramInfo += parameter.getTypeName() + " ";
+            paramInfo.append(parameter.getTypeName()).append(" ");
         }
 
-        return paramInfo;
+        return paramInfo.toString();
     }
 
     private static Annotation[] getClassAnnotations(Object o) {
